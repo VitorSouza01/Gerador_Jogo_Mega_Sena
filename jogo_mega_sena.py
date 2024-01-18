@@ -1,9 +1,13 @@
+
+# Gerador de Jogos da Mega Sena
+
+# Importando a biblioteca random
 from random import sample
 
 
 # gera sequencia aleatoria, sem repetição, de números entre 1 e 60
 def gerar_jogo(dezenas_quantidade):
-    print(sorted(list(sample(range(1, 61), dezenas_quantidade))))
+    return sorted(list(sample(range(1, 61), dezenas_quantidade)))
 
 
 # gera uma lista, contendo as varias sequencias númericas, ilimitado a quantidade de jogos desejada
@@ -13,8 +17,12 @@ def gerar_lista_jogos(jogos_quantidade, dezenas_quantidade):
         lista_jogos.append(
             gerar_jogo(dezenas_quantidade)
         )
-    print(lista_jogos)
+    return lista_jogos
 
 
-gerar_lista_jogos(5, 6)
-gerar_jogo(6)
+# Resultado
+print("[ GERADOR DE JOGOS DA MEGA SENA ]")
+
+quantidade_de_jogos = int(input("\n-Digite a quantidade de jogos que deseja fazer: "))
+
+print(gerar_lista_jogos(quantidade_de_jogos - 1, 6))
